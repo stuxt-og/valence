@@ -1,1052 +1,1563 @@
 [
   {
-    "name": "HandshakeC2SPacket",
+    "name": "intention",
+    "phase": "handshake",
     "side": "serverbound",
-    "state": "handshaking",
-    "id": 0
+    "id": 0,
+    "state": "handshake"
   },
   {
-    "name": "TeleportConfirmC2SPacket",
+    "name": "status_request",
+    "phase": "status",
     "side": "serverbound",
-    "state": "play",
-    "id": 0
+    "id": 0,
+    "state": "status"
   },
   {
-    "name": "QueryBlockNbtC2SPacket",
+    "name": "ping_request",
+    "phase": "status",
     "side": "serverbound",
-    "state": "play",
-    "id": 1
+    "id": 1,
+    "state": "status"
   },
   {
-    "name": "UpdateDifficultyC2SPacket",
+    "name": "status_response",
+    "phase": "status",
+    "side": "clientbound",
+    "id": 0,
+    "state": "status"
+  },
+  {
+    "name": "pong_response",
+    "phase": "status",
+    "side": "clientbound",
+    "id": 1,
+    "state": "status"
+  },
+  {
+    "name": "hello",
+    "phase": "login",
     "side": "serverbound",
-    "state": "play",
-    "id": 2
+    "id": 0,
+    "state": "login"
   },
   {
-    "name": "MessageAcknowledgmentC2SPacket",
+    "name": "key",
+    "phase": "login",
     "side": "serverbound",
-    "state": "play",
-    "id": 3
+    "id": 1,
+    "state": "login"
   },
   {
-    "name": "CommandExecutionC2SPacket",
+    "name": "custom_query_answer",
+    "phase": "login",
     "side": "serverbound",
-    "state": "play",
-    "id": 4
+    "id": 2,
+    "state": "login"
   },
   {
-    "name": "ChatMessageC2SPacket",
+    "name": "login_acknowledged",
+    "phase": "login",
     "side": "serverbound",
-    "state": "play",
-    "id": 5
+    "id": 3,
+    "state": "login"
   },
   {
-    "name": "PlayerSessionC2SPacket",
+    "name": "cookie_response",
+    "phase": "login",
     "side": "serverbound",
-    "state": "play",
-    "id": 6
+    "id": 4,
+    "state": "login"
   },
   {
-    "name": "ClientStatusC2SPacket",
+    "name": "login_disconnect",
+    "phase": "login",
+    "side": "clientbound",
+    "id": 0,
+    "state": "login"
+  },
+  {
+    "name": "hello",
+    "phase": "login",
+    "side": "clientbound",
+    "id": 1,
+    "state": "login"
+  },
+  {
+    "name": "game_profile",
+    "phase": "login",
+    "side": "clientbound",
+    "id": 2,
+    "state": "login"
+  },
+  {
+    "name": "login_compression",
+    "phase": "login",
+    "side": "clientbound",
+    "id": 3,
+    "state": "login"
+  },
+  {
+    "name": "custom_query",
+    "phase": "login",
+    "side": "clientbound",
+    "id": 4,
+    "state": "login"
+  },
+  {
+    "name": "cookie_request",
+    "phase": "login",
+    "side": "clientbound",
+    "id": 5,
+    "state": "login"
+  },
+  {
+    "name": "client_information",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 7
+    "id": 0,
+    "state": "configuration"
   },
   {
-    "name": "ClientSettingsC2SPacket",
+    "name": "cookie_response",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 8
+    "id": 1,
+    "state": "configuration"
   },
   {
-    "name": "RequestCommandCompletionsC2SPacket",
+    "name": "custom_payload",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 9
+    "id": 2,
+    "state": "configuration"
   },
   {
-    "name": "ButtonClickC2SPacket",
+    "name": "finish_configuration",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 10
+    "id": 3,
+    "state": "configuration"
   },
   {
-    "name": "ClickSlotC2SPacket",
+    "name": "keep_alive",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 11
+    "id": 4,
+    "state": "configuration"
   },
   {
-    "name": "CloseHandledScreenC2SPacket",
+    "name": "pong",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 12
+    "id": 5,
+    "state": "configuration"
   },
   {
-    "name": "CustomPayloadC2SPacket",
+    "name": "resource_pack",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 13
+    "id": 6,
+    "state": "configuration"
   },
   {
-    "name": "BookUpdateC2SPacket",
+    "name": "select_known_packs",
+    "phase": "configuration",
     "side": "serverbound",
-    "state": "play",
-    "id": 14
+    "id": 7,
+    "state": "configuration"
   },
   {
-    "name": "QueryEntityNbtC2SPacket",
+    "name": "cookie_request",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 0,
+    "state": "configuration"
+  },
+  {
+    "name": "custom_payload",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 1,
+    "state": "configuration"
+  },
+  {
+    "name": "disconnect",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 2,
+    "state": "configuration"
+  },
+  {
+    "name": "finish_configuration",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 3,
+    "state": "configuration"
+  },
+  {
+    "name": "keep_alive",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 4,
+    "state": "configuration"
+  },
+  {
+    "name": "ping",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 5,
+    "state": "configuration"
+  },
+  {
+    "name": "reset_chat",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 6,
+    "state": "configuration"
+  },
+  {
+    "name": "registry_data",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 7,
+    "state": "configuration"
+  },
+  {
+    "name": "resource_pack_pop",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 8,
+    "state": "configuration"
+  },
+  {
+    "name": "resource_pack_push",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 9,
+    "state": "configuration"
+  },
+  {
+    "name": "store_cookie",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 10,
+    "state": "configuration"
+  },
+  {
+    "name": "transfer",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 11,
+    "state": "configuration"
+  },
+  {
+    "name": "update_enabled_features",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 12,
+    "state": "configuration"
+  },
+  {
+    "name": "update_tags",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 13,
+    "state": "configuration"
+  },
+  {
+    "name": "select_known_packs",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 14,
+    "state": "configuration"
+  },
+  {
+    "name": "custom_report_details",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 15,
+    "state": "configuration"
+  },
+  {
+    "name": "server_links",
+    "phase": "configuration",
+    "side": "clientbound",
+    "id": 16,
+    "state": "configuration"
+  },
+  {
+    "name": "accept_teleportation",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 15
+    "id": 0,
+    "state": "play"
   },
   {
-    "name": "PlayerInteractEntityC2SPacket",
+    "name": "block_entity_tag_query",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 16
+    "id": 1,
+    "state": "play"
   },
   {
-    "name": "JigsawGeneratingC2SPacket",
+    "name": "change_difficulty",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 17
+    "id": 2,
+    "state": "play"
   },
   {
-    "name": "KeepAliveC2SPacket",
+    "name": "chat_ack",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 18
+    "id": 3,
+    "state": "play"
   },
   {
-    "name": "UpdateDifficultyLockC2SPacket",
+    "name": "chat_command",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 19
+    "id": 4,
+    "state": "play"
   },
   {
-    "name": "PositionAndOnGround",
+    "name": "chat_command_signed",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 20
+    "id": 5,
+    "state": "play"
   },
   {
-    "name": "Full",
+    "name": "chat",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 21
+    "id": 6,
+    "state": "play"
   },
   {
-    "name": "LookAndOnGround",
+    "name": "chat_session_update",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 22
+    "id": 7,
+    "state": "play"
   },
   {
-    "name": "OnGroundOnly",
+    "name": "chunk_batch_received",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 23
+    "id": 8,
+    "state": "play"
   },
   {
-    "name": "VehicleMoveC2SPacket",
+    "name": "client_command",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 24
+    "id": 9,
+    "state": "play"
   },
   {
-    "name": "BoatPaddleStateC2SPacket",
+    "name": "client_information",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 25
+    "id": 10,
+    "state": "play"
   },
   {
-    "name": "PickFromInventoryC2SPacket",
+    "name": "command_suggestion",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 26
+    "id": 11,
+    "state": "play"
   },
   {
-    "name": "CraftRequestC2SPacket",
+    "name": "configuration_acknowledged",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 27
+    "id": 12,
+    "state": "play"
   },
   {
-    "name": "UpdatePlayerAbilitiesC2SPacket",
+    "name": "container_button_click",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 28
+    "id": 13,
+    "state": "play"
   },
   {
-    "name": "PlayerActionC2SPacket",
+    "name": "container_click",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 29
+    "id": 14,
+    "state": "play"
   },
   {
-    "name": "ClientCommandC2SPacket",
+    "name": "container_close",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 30
+    "id": 15,
+    "state": "play"
   },
   {
-    "name": "PlayerInputC2SPacket",
+    "name": "container_slot_state_changed",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 31
+    "id": 16,
+    "state": "play"
   },
   {
-    "name": "PlayPongC2SPacket",
+    "name": "cookie_response",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 32
+    "id": 17,
+    "state": "play"
   },
   {
-    "name": "RecipeCategoryOptionsC2SPacket",
+    "name": "custom_payload",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 33
+    "id": 18,
+    "state": "play"
   },
   {
-    "name": "RecipeBookDataC2SPacket",
+    "name": "debug_sample_subscription",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 34
+    "id": 19,
+    "state": "play"
   },
   {
-    "name": "RenameItemC2SPacket",
+    "name": "edit_book",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 35
+    "id": 20,
+    "state": "play"
   },
   {
-    "name": "ResourcePackStatusC2SPacket",
+    "name": "entity_tag_query",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 36
+    "id": 21,
+    "state": "play"
   },
   {
-    "name": "AdvancementTabC2SPacket",
+    "name": "interact",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 37
+    "id": 22,
+    "state": "play"
   },
   {
-    "name": "SelectMerchantTradeC2SPacket",
+    "name": "jigsaw_generate",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 38
+    "id": 23,
+    "state": "play"
   },
   {
-    "name": "UpdateBeaconC2SPacket",
+    "name": "keep_alive",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 39
+    "id": 24,
+    "state": "play"
   },
   {
-    "name": "UpdateSelectedSlotC2SPacket",
+    "name": "lock_difficulty",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 40
+    "id": 25,
+    "state": "play"
   },
   {
-    "name": "UpdateCommandBlockC2SPacket",
+    "name": "move_player_pos",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 41
+    "id": 26,
+    "state": "play"
   },
   {
-    "name": "UpdateCommandBlockMinecartC2SPacket",
+    "name": "move_player_pos_rot",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 42
+    "id": 27,
+    "state": "play"
   },
   {
-    "name": "CreativeInventoryActionC2SPacket",
+    "name": "move_player_rot",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 43
+    "id": 28,
+    "state": "play"
   },
   {
-    "name": "UpdateJigsawC2SPacket",
+    "name": "move_player_status_only",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 44
+    "id": 29,
+    "state": "play"
   },
   {
-    "name": "UpdateStructureBlockC2SPacket",
+    "name": "move_vehicle",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 45
+    "id": 30,
+    "state": "play"
   },
   {
-    "name": "UpdateSignC2SPacket",
+    "name": "paddle_boat",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 46
+    "id": 31,
+    "state": "play"
   },
   {
-    "name": "HandSwingC2SPacket",
+    "name": "pick_item",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 47
+    "id": 32,
+    "state": "play"
   },
   {
-    "name": "SpectatorTeleportC2SPacket",
+    "name": "ping_request",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 48
+    "id": 33,
+    "state": "play"
   },
   {
-    "name": "PlayerInteractBlockC2SPacket",
+    "name": "place_recipe",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 49
+    "id": 34,
+    "state": "play"
   },
   {
-    "name": "PlayerInteractItemC2SPacket",
+    "name": "player_abilities",
+    "phase": "play",
     "side": "serverbound",
-    "state": "play",
-    "id": 50
+    "id": 35,
+    "state": "play"
   },
   {
-    "name": "QueryRequestC2SPacket",
+    "name": "player_action",
+    "phase": "play",
     "side": "serverbound",
-    "state": "status",
-    "id": 0
+    "id": 36,
+    "state": "play"
   },
   {
-    "name": "QueryPingC2SPacket",
+    "name": "player_command",
+    "phase": "play",
     "side": "serverbound",
-    "state": "status",
-    "id": 1
+    "id": 37,
+    "state": "play"
   },
   {
-    "name": "LoginHelloC2SPacket",
+    "name": "player_input",
+    "phase": "play",
     "side": "serverbound",
-    "state": "login",
-    "id": 0
+    "id": 38,
+    "state": "play"
   },
   {
-    "name": "LoginKeyC2SPacket",
+    "name": "pong",
+    "phase": "play",
     "side": "serverbound",
-    "state": "login",
-    "id": 1
+    "id": 39,
+    "state": "play"
   },
   {
-    "name": "LoginQueryResponseC2SPacket",
+    "name": "recipe_book_change_settings",
+    "phase": "play",
     "side": "serverbound",
-    "state": "login",
-    "id": 2
+    "id": 40,
+    "state": "play"
   },
   {
-    "name": "BundleSplitterPacket",
+    "name": "recipe_book_seen_recipe",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 41,
+    "state": "play"
+  },
+  {
+    "name": "rename_item",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 42,
+    "state": "play"
+  },
+  {
+    "name": "resource_pack",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 43,
+    "state": "play"
+  },
+  {
+    "name": "seen_advancements",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 44,
+    "state": "play"
+  },
+  {
+    "name": "select_trade",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 45,
+    "state": "play"
+  },
+  {
+    "name": "set_beacon",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 46,
+    "state": "play"
+  },
+  {
+    "name": "set_carried_item",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 47,
+    "state": "play"
+  },
+  {
+    "name": "set_command_block",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 48,
+    "state": "play"
+  },
+  {
+    "name": "set_command_minecart",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 49,
+    "state": "play"
+  },
+  {
+    "name": "set_creative_mode_slot",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 50,
+    "state": "play"
+  },
+  {
+    "name": "set_jigsaw_block",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 51,
+    "state": "play"
+  },
+  {
+    "name": "set_structure_block",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 52,
+    "state": "play"
+  },
+  {
+    "name": "sign_update",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 53,
+    "state": "play"
+  },
+  {
+    "name": "swing",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 54,
+    "state": "play"
+  },
+  {
+    "name": "teleport_to_entity",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 55,
+    "state": "play"
+  },
+  {
+    "name": "use_item_on",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 56,
+    "state": "play"
+  },
+  {
+    "name": "use_item",
+    "phase": "play",
+    "side": "serverbound",
+    "id": 57,
+    "state": "play"
+  },
+  {
+    "name": "bundle_delimiter",
+    "phase": "play",
+    "side": "clientbound",
+    "id": 0,
+    "state": "play"
+  },
+  {
+    "name": "add_entity",
+    "phase": "play",
+    "side": "clientbound",
+    "id": 1,
+    "state": "play"
+  },
+  {
+    "name": "add_experience_orb",
+    "phase": "play",
+    "side": "clientbound",
+    "id": 2,
+    "state": "play"
+  },
+  {
+    "name": "animate",
+    "phase": "play",
+    "side": "clientbound",
+    "id": 3,
+    "state": "play"
+  },
+  {
+    "name": "award_stats",
+    "phase": "play",
+    "side": "clientbound",
+    "id": 4,
+    "state": "play"
+  },
+  {
+    "name": "block_changed_ack",
+    "phase": "play",
+    "side": "clientbound",
+    "id": 5,
+    "state": "play"
+  },
+  {
+    "name": "block_destruction",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 0
+    "id": 6,
+    "state": "play"
   },
   {
-    "name": "EntitySpawnS2CPacket",
+    "name": "block_entity_data",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 1
+    "id": 7,
+    "state": "play"
   },
   {
-    "name": "ExperienceOrbSpawnS2CPacket",
+    "name": "block_event",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 2
+    "id": 8,
+    "state": "play"
   },
   {
-    "name": "PlayerSpawnS2CPacket",
+    "name": "block_update",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 3
+    "id": 9,
+    "state": "play"
   },
   {
-    "name": "EntityAnimationS2CPacket",
+    "name": "boss_event",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 4
+    "id": 10,
+    "state": "play"
   },
   {
-    "name": "StatisticsS2CPacket",
+    "name": "change_difficulty",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 5
+    "id": 11,
+    "state": "play"
   },
   {
-    "name": "PlayerActionResponseS2CPacket",
+    "name": "chunk_batch_finished",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 6
+    "id": 12,
+    "state": "play"
   },
   {
-    "name": "BlockBreakingProgressS2CPacket",
+    "name": "chunk_batch_start",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 7
+    "id": 13,
+    "state": "play"
   },
   {
-    "name": "BlockEntityUpdateS2CPacket",
+    "name": "chunks_biomes",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 8
+    "id": 14,
+    "state": "play"
   },
   {
-    "name": "BlockEventS2CPacket",
+    "name": "clear_titles",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 9
+    "id": 15,
+    "state": "play"
   },
   {
-    "name": "BlockUpdateS2CPacket",
+    "name": "command_suggestions",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 10
+    "id": 16,
+    "state": "play"
   },
   {
-    "name": "BossBarS2CPacket",
+    "name": "commands",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 11
+    "id": 17,
+    "state": "play"
   },
   {
-    "name": "DifficultyS2CPacket",
+    "name": "container_close",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 12
+    "id": 18,
+    "state": "play"
   },
   {
-    "name": "ChunkBiomeDataS2CPacket",
+    "name": "container_set_content",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 13
+    "id": 19,
+    "state": "play"
   },
   {
-    "name": "ClearTitleS2CPacket",
+    "name": "container_set_data",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 14
+    "id": 20,
+    "state": "play"
   },
   {
-    "name": "CommandSuggestionsS2CPacket",
+    "name": "container_set_slot",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 15
+    "id": 21,
+    "state": "play"
   },
   {
-    "name": "CommandTreeS2CPacket",
+    "name": "cookie_request",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 16
+    "id": 22,
+    "state": "play"
   },
   {
-    "name": "CloseScreenS2CPacket",
+    "name": "cooldown",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 17
+    "id": 23,
+    "state": "play"
   },
   {
-    "name": "InventoryS2CPacket",
+    "name": "custom_chat_completions",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 18
+    "id": 24,
+    "state": "play"
   },
   {
-    "name": "ScreenHandlerPropertyUpdateS2CPacket",
+    "name": "custom_payload",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 19
+    "id": 25,
+    "state": "play"
   },
   {
-    "name": "ScreenHandlerSlotUpdateS2CPacket",
+    "name": "damage_event",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 20
+    "id": 26,
+    "state": "play"
   },
   {
-    "name": "CooldownUpdateS2CPacket",
+    "name": "debug_sample",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 21
+    "id": 27,
+    "state": "play"
   },
   {
-    "name": "ChatSuggestionsS2CPacket",
+    "name": "delete_chat",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 22
+    "id": 28,
+    "state": "play"
   },
   {
-    "name": "CustomPayloadS2CPacket",
+    "name": "disconnect",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 23
+    "id": 29,
+    "state": "play"
   },
   {
-    "name": "EntityDamageS2CPacket",
+    "name": "disguised_chat",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 24
+    "id": 30,
+    "state": "play"
   },
   {
-    "name": "RemoveMessageS2CPacket",
+    "name": "entity_event",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 25
+    "id": 31,
+    "state": "play"
   },
   {
-    "name": "DisconnectS2CPacket",
+    "name": "explode",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 26
+    "id": 32,
+    "state": "play"
   },
   {
-    "name": "ProfilelessChatMessageS2CPacket",
+    "name": "forget_level_chunk",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 27
+    "id": 33,
+    "state": "play"
   },
   {
-    "name": "EntityStatusS2CPacket",
+    "name": "game_event",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 28
+    "id": 34,
+    "state": "play"
   },
   {
-    "name": "ExplosionS2CPacket",
+    "name": "horse_screen_open",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 29
+    "id": 35,
+    "state": "play"
   },
   {
-    "name": "UnloadChunkS2CPacket",
+    "name": "hurt_animation",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 30
+    "id": 36,
+    "state": "play"
   },
   {
-    "name": "GameStateChangeS2CPacket",
+    "name": "initialize_border",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 31
+    "id": 37,
+    "state": "play"
   },
   {
-    "name": "OpenHorseScreenS2CPacket",
+    "name": "keep_alive",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 32
+    "id": 38,
+    "state": "play"
   },
   {
-    "name": "DamageTiltS2CPacket",
+    "name": "level_chunk_with_light",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 33
+    "id": 39,
+    "state": "play"
   },
   {
-    "name": "WorldBorderInitializeS2CPacket",
+    "name": "level_event",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 34
+    "id": 40,
+    "state": "play"
   },
   {
-    "name": "KeepAliveS2CPacket",
+    "name": "level_particles",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 35
+    "id": 41,
+    "state": "play"
   },
   {
-    "name": "ChunkDataS2CPacket",
+    "name": "light_update",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 36
+    "id": 42,
+    "state": "play"
   },
   {
-    "name": "WorldEventS2CPacket",
+    "name": "login",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 37
+    "id": 43,
+    "state": "play"
   },
   {
-    "name": "ParticleS2CPacket",
+    "name": "map_item_data",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 38
+    "id": 44,
+    "state": "play"
   },
   {
-    "name": "LightUpdateS2CPacket",
+    "name": "merchant_offers",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 39
+    "id": 45,
+    "state": "play"
   },
   {
-    "name": "GameJoinS2CPacket",
+    "name": "move_entity_pos",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 40
+    "id": 46,
+    "state": "play"
   },
   {
-    "name": "MapUpdateS2CPacket",
+    "name": "move_entity_pos_rot",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 41
+    "id": 47,
+    "state": "play"
   },
   {
-    "name": "SetTradeOffersS2CPacket",
+    "name": "move_entity_rot",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 42
+    "id": 48,
+    "state": "play"
   },
   {
-    "name": "MoveRelative",
+    "name": "move_vehicle",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 43
+    "id": 49,
+    "state": "play"
   },
   {
-    "name": "RotateAndMoveRelative",
+    "name": "open_book",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 44
+    "id": 50,
+    "state": "play"
   },
   {
-    "name": "Rotate",
+    "name": "open_screen",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 45
+    "id": 51,
+    "state": "play"
   },
   {
-    "name": "VehicleMoveS2CPacket",
+    "name": "open_sign_editor",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 46
+    "id": 52,
+    "state": "play"
   },
   {
-    "name": "OpenWrittenBookS2CPacket",
+    "name": "ping",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 47
+    "id": 53,
+    "state": "play"
   },
   {
-    "name": "OpenScreenS2CPacket",
+    "name": "pong_response",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 48
+    "id": 54,
+    "state": "play"
   },
   {
-    "name": "SignEditorOpenS2CPacket",
+    "name": "place_ghost_recipe",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 49
+    "id": 55,
+    "state": "play"
   },
   {
-    "name": "PlayPingS2CPacket",
+    "name": "player_abilities",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 50
+    "id": 56,
+    "state": "play"
   },
   {
-    "name": "CraftFailedResponseS2CPacket",
+    "name": "player_chat",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 51
+    "id": 57,
+    "state": "play"
   },
   {
-    "name": "PlayerAbilitiesS2CPacket",
+    "name": "player_combat_end",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 52
+    "id": 58,
+    "state": "play"
   },
   {
-    "name": "ChatMessageS2CPacket",
+    "name": "player_combat_enter",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 53
+    "id": 59,
+    "state": "play"
   },
   {
-    "name": "EndCombatS2CPacket",
+    "name": "player_combat_kill",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 54
+    "id": 60,
+    "state": "play"
   },
   {
-    "name": "EnterCombatS2CPacket",
+    "name": "player_info_remove",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 55
+    "id": 61,
+    "state": "play"
   },
   {
-    "name": "DeathMessageS2CPacket",
+    "name": "player_info_update",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 56
+    "id": 62,
+    "state": "play"
   },
   {
-    "name": "PlayerRemoveS2CPacket",
+    "name": "player_look_at",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 57
+    "id": 63,
+    "state": "play"
   },
   {
-    "name": "PlayerListS2CPacket",
+    "name": "player_position",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 58
+    "id": 64,
+    "state": "play"
   },
   {
-    "name": "LookAtS2CPacket",
+    "name": "recipe",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 59
+    "id": 65,
+    "state": "play"
   },
   {
-    "name": "PlayerPositionLookS2CPacket",
+    "name": "remove_entities",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 60
+    "id": 66,
+    "state": "play"
   },
   {
-    "name": "UnlockRecipesS2CPacket",
+    "name": "remove_mob_effect",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 61
+    "id": 67,
+    "state": "play"
   },
   {
-    "name": "EntitiesDestroyS2CPacket",
+    "name": "reset_score",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 62
+    "id": 68,
+    "state": "play"
   },
   {
-    "name": "RemoveEntityStatusEffectS2CPacket",
+    "name": "resource_pack_pop",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 63
+    "id": 69,
+    "state": "play"
   },
   {
-    "name": "ResourcePackSendS2CPacket",
+    "name": "resource_pack_push",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 64
+    "id": 70,
+    "state": "play"
   },
   {
-    "name": "PlayerRespawnS2CPacket",
+    "name": "respawn",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 65
+    "id": 71,
+    "state": "play"
   },
   {
-    "name": "EntitySetHeadYawS2CPacket",
+    "name": "rotate_head",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 66
+    "id": 72,
+    "state": "play"
   },
   {
-    "name": "ChunkDeltaUpdateS2CPacket",
+    "name": "section_blocks_update",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 67
+    "id": 73,
+    "state": "play"
   },
   {
-    "name": "SelectAdvancementTabS2CPacket",
+    "name": "select_advancements_tab",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 68
+    "id": 74,
+    "state": "play"
   },
   {
-    "name": "ServerMetadataS2CPacket",
+    "name": "server_data",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 69
+    "id": 75,
+    "state": "play"
   },
   {
-    "name": "OverlayMessageS2CPacket",
+    "name": "set_action_bar_text",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 70
+    "id": 76,
+    "state": "play"
   },
   {
-    "name": "WorldBorderCenterChangedS2CPacket",
+    "name": "set_border_center",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 71
+    "id": 77,
+    "state": "play"
   },
   {
-    "name": "WorldBorderInterpolateSizeS2CPacket",
+    "name": "set_border_lerp_size",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 72
+    "id": 78,
+    "state": "play"
   },
   {
-    "name": "WorldBorderSizeChangedS2CPacket",
+    "name": "set_border_size",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 73
+    "id": 79,
+    "state": "play"
   },
   {
-    "name": "WorldBorderWarningTimeChangedS2CPacket",
+    "name": "set_border_warning_delay",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 74
+    "id": 80,
+    "state": "play"
   },
   {
-    "name": "WorldBorderWarningBlocksChangedS2CPacket",
+    "name": "set_border_warning_distance",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 75
+    "id": 81,
+    "state": "play"
   },
   {
-    "name": "SetCameraEntityS2CPacket",
+    "name": "set_camera",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 76
+    "id": 82,
+    "state": "play"
   },
   {
-    "name": "UpdateSelectedSlotS2CPacket",
+    "name": "set_carried_item",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 77
+    "id": 83,
+    "state": "play"
   },
   {
-    "name": "ChunkRenderDistanceCenterS2CPacket",
+    "name": "set_chunk_cache_center",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 78
+    "id": 84,
+    "state": "play"
   },
   {
-    "name": "ChunkLoadDistanceS2CPacket",
+    "name": "set_chunk_cache_radius",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 79
+    "id": 85,
+    "state": "play"
   },
   {
-    "name": "PlayerSpawnPositionS2CPacket",
+    "name": "set_default_spawn_position",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 80
+    "id": 86,
+    "state": "play"
   },
   {
-    "name": "ScoreboardDisplayS2CPacket",
+    "name": "set_display_objective",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 81
+    "id": 87,
+    "state": "play"
   },
   {
-    "name": "EntityTrackerUpdateS2CPacket",
+    "name": "set_entity_data",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 82
+    "id": 88,
+    "state": "play"
   },
   {
-    "name": "EntityAttachS2CPacket",
+    "name": "set_entity_link",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 83
+    "id": 89,
+    "state": "play"
   },
   {
-    "name": "EntityVelocityUpdateS2CPacket",
+    "name": "set_entity_motion",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 84
+    "id": 90,
+    "state": "play"
   },
   {
-    "name": "EntityEquipmentUpdateS2CPacket",
+    "name": "set_equipment",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 85
+    "id": 91,
+    "state": "play"
   },
   {
-    "name": "ExperienceBarUpdateS2CPacket",
+    "name": "set_experience",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 86
+    "id": 92,
+    "state": "play"
   },
   {
-    "name": "HealthUpdateS2CPacket",
+    "name": "set_health",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 87
+    "id": 93,
+    "state": "play"
   },
   {
-    "name": "ScoreboardObjectiveUpdateS2CPacket",
+    "name": "set_objective",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 88
+    "id": 94,
+    "state": "play"
   },
   {
-    "name": "EntityPassengersSetS2CPacket",
+    "name": "set_passengers",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 89
+    "id": 95,
+    "state": "play"
   },
   {
-    "name": "TeamS2CPacket",
+    "name": "set_player_team",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 90
+    "id": 96,
+    "state": "play"
   },
   {
-    "name": "ScoreboardPlayerUpdateS2CPacket",
+    "name": "set_score",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 91
+    "id": 97,
+    "state": "play"
   },
   {
-    "name": "SimulationDistanceS2CPacket",
+    "name": "set_simulation_distance",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 92
+    "id": 98,
+    "state": "play"
   },
   {
-    "name": "SubtitleS2CPacket",
+    "name": "set_subtitle_text",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 93
+    "id": 99,
+    "state": "play"
   },
   {
-    "name": "WorldTimeUpdateS2CPacket",
+    "name": "set_time",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 94
+    "id": 100,
+    "state": "play"
   },
   {
-    "name": "TitleS2CPacket",
+    "name": "set_title_text",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 95
+    "id": 101,
+    "state": "play"
   },
   {
-    "name": "TitleFadeS2CPacket",
+    "name": "set_titles_animation",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 96
+    "id": 102,
+    "state": "play"
   },
   {
-    "name": "PlaySoundFromEntityS2CPacket",
+    "name": "sound_entity",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 97
+    "id": 103,
+    "state": "play"
   },
   {
-    "name": "PlaySoundS2CPacket",
+    "name": "sound",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 98
+    "id": 104,
+    "state": "play"
   },
   {
-    "name": "StopSoundS2CPacket",
+    "name": "start_configuration",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 99
+    "id": 105,
+    "state": "play"
   },
   {
-    "name": "GameMessageS2CPacket",
+    "name": "stop_sound",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 100
+    "id": 106,
+    "state": "play"
   },
   {
-    "name": "PlayerListHeaderS2CPacket",
+    "name": "store_cookie",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 101
+    "id": 107,
+    "state": "play"
   },
   {
-    "name": "NbtQueryResponseS2CPacket",
+    "name": "system_chat",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 102
+    "id": 108,
+    "state": "play"
   },
   {
-    "name": "ItemPickupAnimationS2CPacket",
+    "name": "tab_list",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 103
+    "id": 109,
+    "state": "play"
   },
   {
-    "name": "EntityPositionS2CPacket",
+    "name": "tag_query",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 104
+    "id": 110,
+    "state": "play"
   },
   {
-    "name": "AdvancementUpdateS2CPacket",
+    "name": "take_item_entity",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 105
+    "id": 111,
+    "state": "play"
   },
   {
-    "name": "EntityAttributesS2CPacket",
+    "name": "teleport_entity",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 106
+    "id": 112,
+    "state": "play"
   },
   {
-    "name": "FeaturesS2CPacket",
+    "name": "ticking_state",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 107
+    "id": 113,
+    "state": "play"
   },
   {
-    "name": "EntityStatusEffectS2CPacket",
+    "name": "ticking_step",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 108
+    "id": 114,
+    "state": "play"
   },
   {
-    "name": "SynchronizeRecipesS2CPacket",
+    "name": "transfer",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 109
+    "id": 115,
+    "state": "play"
   },
   {
-    "name": "SynchronizeTagsS2CPacket",
+    "name": "update_advancements",
+    "phase": "play",
     "side": "clientbound",
-    "state": "play",
-    "id": 110
+    "id": 116,
+    "state": "play"
   },
   {
-    "name": "QueryResponseS2CPacket",
+    "name": "update_attributes",
+    "phase": "play",
     "side": "clientbound",
-    "state": "status",
-    "id": 0
+    "id": 117,
+    "state": "play"
   },
   {
-    "name": "QueryPongS2CPacket",
+    "name": "update_mob_effect",
+    "phase": "play",
     "side": "clientbound",
-    "state": "status",
-    "id": 1
+    "id": 118,
+    "state": "play"
   },
   {
-    "name": "LoginDisconnectS2CPacket",
+    "name": "update_recipes",
+    "phase": "play",
     "side": "clientbound",
-    "state": "login",
-    "id": 0
+    "id": 119,
+    "state": "play"
   },
   {
-    "name": "LoginHelloS2CPacket",
+    "name": "update_tags",
+    "phase": "play",
     "side": "clientbound",
-    "state": "login",
-    "id": 1
+    "id": 120,
+    "state": "play"
   },
   {
-    "name": "LoginSuccessS2CPacket",
+    "name": "projectile_power",
+    "phase": "play",
     "side": "clientbound",
-    "state": "login",
-    "id": 2
+    "id": 121,
+    "state": "play"
   },
   {
-    "name": "LoginCompressionS2CPacket",
+    "name": "custom_report_details",
+    "phase": "play",
     "side": "clientbound",
-    "state": "login",
-    "id": 3
+    "id": 122,
+    "state": "play"
   },
   {
-    "name": "LoginQueryRequestS2CPacket",
+    "name": "server_links",
+    "phase": "play",
     "side": "clientbound",
-    "state": "login",
-    "id": 4
+    "id": 123,
+    "state": "play"
   }
 ]

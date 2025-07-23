@@ -15,8 +15,8 @@ struct TopLevel {
 
 #[derive(Deserialize, Clone, Debug)]
 struct Block {
-    id: u16,
-    item_id: u16,
+    id: u32,
+    item_id: String,
     wall_variant_id: Option<u16>,
     translation_key: String,
     name: String,
@@ -54,6 +54,7 @@ struct State {
     luminance: u8,
     opaque: bool,
     replaceable: bool,
+    #[serde(default)]
     blocks_motion: bool,
     collision_shapes: Vec<u16>,
     block_entity_type: Option<u32>,
@@ -392,7 +393,7 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
         .iter()
         .map(|block| {
             let name = ident(block.name.to_pascal_case());
-            let item_id = block.item_id;
+            let item_id = &block.item_id;
 
             quote! {
                 BlockKind::#name => #item_id,
@@ -402,10 +403,10 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
 
     let block_kind_from_item_kind_arms = blocks
         .iter()
-        .filter(|block| block.item_id != 0)
+        .filter(|block| block.item_id != "minecraft:air")
         .map(|block| {
             let name = ident(block.name.to_pascal_case());
-            let item_id = block.item_id;
+            let item_id = &block.item_id;
 
             quote! {
                 #item_id => Some(BlockKind::#name),

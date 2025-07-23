@@ -17,9 +17,10 @@ use paste::paste;
 use tracing::warn;
 use tracked_data::TrackedData;
 use valence_math::{DVec3, Vec3};
-use valence_protocol::{Decode, Encode, VarInt};
+use valence_protocol::{decode, Decode, Encode, Ident, VarInt};
 use valence_server_common::{Despawned, UniqueId};
-
+use valence_protocol::registry::RegistryEntry;
+use valence_ident::Ident;
 use crate::attributes::TrackedEntityAttributes;
 
 include!(concat!(env!("OUT_DIR"), "/entity.rs"));
@@ -555,6 +556,64 @@ pub enum SnifferState {
     Searching,
     Digging,
     Rising,
+}
+
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Default, Debug, Encode, Decode)]
+pub enum ArmadilloState {
+    #[default]
+    Idle,
+    Rolling,
+    Scared,
+}
+
+#[derive(Debug, Clone, Encode, Decode, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct WolfVariant {
+    pub wild_texture: Ident,
+    pub tame_texture: Ident,
+    pub angry_texture: Ident,
+    pub biomes: Vec<RegistryEntry<Biome>>,
+}
+
+impl WolfVariant {
+    pub const fn new(wild_texture: Ident, tame_texture: Ident, angry_texture: Ident, biomes: Vec<RegistryEntry<Biome>>) -> Self {
+        Self {
+            wild_texture,
+            tame_texture,
+            angry_texture,
+            biomes,
+        }
+    }
+}
+
+impl Default for WolfVariant {
+    fn default() -> Self {
+        Self {
+            wild_texture: Default::default(),
+            tame_texture: Default::default(),
+            angry_texture: Default::default(),
+            biomes: Default::default(),
+        }
+    }
+}
+
+impl Encode for WolfVariant {
+    fn encode(&self, mut w: impl std::io::Write) -> anyhow::Result<()> {
+        self.wild_texture.encode(&mut w)?;
+        self.tame_texture.encode(&mut w)?;
+        self.angry_texture.encode(&mut w)?;
+        self.biomes.encode(&mut w)
+    }
+}
+
+impl Decode<'_> for WolfVariant {
+    fn decode(r: &mut &[u8]) -> anyhow::Result<Self> {
+        Ok(Self {
+            wild_texture: Ident::decode(r)?,
+            tame_texture: Ident::decode(r)?,
+            angry_texture: Ident::decode(r)?,
+            biomes: Vec<RegistryEntry<Biome>>::decode(r)?,
+        })
+    }
 }
 
 #[derive(Clone, Copy, PartialEq, PartialOrd, Debug, Encode, Decode)]

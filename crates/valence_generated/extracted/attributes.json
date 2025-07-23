@@ -1,78 +1,6 @@
 {
-  "generic.max_health": {
-    "id": 0,
-    "name": "generic.max_health",
-    "default_value": 20.0,
-    "translation_key": "attribute.name.generic.max_health",
-    "tracked": true,
-    "min_value": 1.0,
-    "max_value": 1024.0
-  },
-  "generic.follow_range": {
-    "id": 1,
-    "name": "generic.follow_range",
-    "default_value": 32.0,
-    "translation_key": "attribute.name.generic.follow_range",
-    "tracked": false,
-    "min_value": 0.0,
-    "max_value": 2048.0
-  },
-  "generic.knockback_resistance": {
-    "id": 2,
-    "name": "generic.knockback_resistance",
-    "default_value": 0.0,
-    "translation_key": "attribute.name.generic.knockback_resistance",
-    "tracked": false,
-    "min_value": 0.0,
-    "max_value": 1.0
-  },
-  "generic.movement_speed": {
-    "id": 3,
-    "name": "generic.movement_speed",
-    "default_value": 0.699999988079071,
-    "translation_key": "attribute.name.generic.movement_speed",
-    "tracked": true,
-    "min_value": 0.0,
-    "max_value": 1024.0
-  },
-  "generic.flying_speed": {
-    "id": 4,
-    "name": "generic.flying_speed",
-    "default_value": 0.4000000059604645,
-    "translation_key": "attribute.name.generic.flying_speed",
-    "tracked": true,
-    "min_value": 0.0,
-    "max_value": 1024.0
-  },
-  "generic.attack_damage": {
-    "id": 5,
-    "name": "generic.attack_damage",
-    "default_value": 2.0,
-    "translation_key": "attribute.name.generic.attack_damage",
-    "tracked": false,
-    "min_value": 0.0,
-    "max_value": 2048.0
-  },
-  "generic.attack_knockback": {
-    "id": 6,
-    "name": "generic.attack_knockback",
-    "default_value": 0.0,
-    "translation_key": "attribute.name.generic.attack_knockback",
-    "tracked": false,
-    "min_value": 0.0,
-    "max_value": 5.0
-  },
-  "generic.attack_speed": {
-    "id": 7,
-    "name": "generic.attack_speed",
-    "default_value": 4.0,
-    "translation_key": "attribute.name.generic.attack_speed",
-    "tracked": true,
-    "min_value": 0.0,
-    "max_value": 1024.0
-  },
   "generic.armor": {
-    "id": 8,
+    "id": "minecraft:generic.armor",
     "name": "generic.armor",
     "default_value": 0.0,
     "translation_key": "attribute.name.generic.armor",
@@ -81,7 +9,7 @@
     "max_value": 30.0
   },
   "generic.armor_toughness": {
-    "id": 9,
+    "id": "minecraft:generic.armor_toughness",
     "name": "generic.armor_toughness",
     "default_value": 0.0,
     "translation_key": "attribute.name.generic.armor_toughness",
@@ -89,8 +17,134 @@
     "min_value": 0.0,
     "max_value": 20.0
   },
+  "generic.attack_damage": {
+    "id": "minecraft:generic.attack_damage",
+    "name": "generic.attack_damage",
+    "default_value": 2.0,
+    "translation_key": "attribute.name.generic.attack_damage",
+    "tracked": false,
+    "min_value": 0.0,
+    "max_value": 2048.0
+  },
+  "generic.attack_knockback": {
+    "id": "minecraft:generic.attack_knockback",
+    "name": "generic.attack_knockback",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.generic.attack_knockback",
+    "tracked": false,
+    "min_value": 0.0,
+    "max_value": 5.0
+  },
+  "generic.attack_speed": {
+    "id": "minecraft:generic.attack_speed",
+    "name": "generic.attack_speed",
+    "default_value": 4.0,
+    "translation_key": "attribute.name.generic.attack_speed",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1024.0
+  },
+  "player.block_break_speed": {
+    "id": "minecraft:player.block_break_speed",
+    "name": "player.block_break_speed",
+    "default_value": 1.0,
+    "translation_key": "attribute.name.player.block_break_speed",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1024.0
+  },
+  "player.block_interaction_range": {
+    "id": "minecraft:player.block_interaction_range",
+    "name": "player.block_interaction_range",
+    "default_value": 4.5,
+    "translation_key": "attribute.name.player.block_interaction_range",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 64.0
+  },
+  "generic.burning_time": {
+    "id": "minecraft:generic.burning_time",
+    "name": "generic.burning_time",
+    "default_value": 1.0,
+    "translation_key": "attribute.name.generic.burning_time",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1024.0
+  },
+  "generic.explosion_knockback_resistance": {
+    "id": "minecraft:generic.explosion_knockback_resistance",
+    "name": "generic.explosion_knockback_resistance",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.generic.explosion_knockback_resistance",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1.0
+  },
+  "player.entity_interaction_range": {
+    "id": "minecraft:player.entity_interaction_range",
+    "name": "player.entity_interaction_range",
+    "default_value": 3.0,
+    "translation_key": "attribute.name.player.entity_interaction_range",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 64.0
+  },
+  "generic.fall_damage_multiplier": {
+    "id": "minecraft:generic.fall_damage_multiplier",
+    "name": "generic.fall_damage_multiplier",
+    "default_value": 1.0,
+    "translation_key": "attribute.name.generic.fall_damage_multiplier",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  "generic.flying_speed": {
+    "id": "minecraft:generic.flying_speed",
+    "name": "generic.flying_speed",
+    "default_value": 0.4,
+    "translation_key": "attribute.name.generic.flying_speed",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1024.0
+  },
+  "generic.follow_range": {
+    "id": "minecraft:generic.follow_range",
+    "name": "generic.follow_range",
+    "default_value": 32.0,
+    "translation_key": "attribute.name.generic.follow_range",
+    "tracked": false,
+    "min_value": 0.0,
+    "max_value": 2048.0
+  },
+  "generic.gravity": {
+    "id": "minecraft:generic.gravity",
+    "name": "generic.gravity",
+    "default_value": 0.08,
+    "translation_key": "attribute.name.generic.gravity",
+    "tracked": true,
+    "min_value": -1.0,
+    "max_value": 1.0
+  },
+  "generic.jump_strength": {
+    "id": "minecraft:generic.jump_strength",
+    "name": "generic.jump_strength",
+    "default_value": 0.41999998688697815,
+    "translation_key": "attribute.name.generic.jump_strength",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 32.0
+  },
+  "generic.knockback_resistance": {
+    "id": "minecraft:generic.knockback_resistance",
+    "name": "generic.knockback_resistance",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.generic.knockback_resistance",
+    "tracked": false,
+    "min_value": 0.0,
+    "max_value": 1.0
+  },
   "generic.luck": {
-    "id": 10,
+    "id": "minecraft:generic.luck",
     "name": "generic.luck",
     "default_value": 0.0,
     "translation_key": "attribute.name.generic.luck",
@@ -98,8 +152,89 @@
     "min_value": -1024.0,
     "max_value": 1024.0
   },
+  "generic.max_absorption": {
+    "id": "minecraft:generic.max_absorption",
+    "name": "generic.max_absorption",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.generic.max_absorption",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 2048.0
+  },
+  "generic.max_health": {
+    "id": "minecraft:generic.max_health",
+    "name": "generic.max_health",
+    "default_value": 20.0,
+    "translation_key": "attribute.name.generic.max_health",
+    "tracked": true,
+    "min_value": 1.0,
+    "max_value": 1024.0
+  },
+  "player.mining_efficiency": {
+    "id": "minecraft:player.mining_efficiency",
+    "name": "player.mining_efficiency",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.player.mining_efficiency",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1024.0
+  },
+  "generic.movement_efficiency": {
+    "id": "minecraft:generic.movement_efficiency",
+    "name": "generic.movement_efficiency",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.generic.movement_efficiency",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1.0
+  },
+  "generic.movement_speed": {
+    "id": "minecraft:generic.movement_speed",
+    "name": "generic.movement_speed",
+    "default_value": 0.7,
+    "translation_key": "attribute.name.generic.movement_speed",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1024.0
+  },
+  "generic.oxygen_bonus": {
+    "id": "minecraft:generic.oxygen_bonus",
+    "name": "generic.oxygen_bonus",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.generic.oxygen_bonus",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1024.0
+  },
+  "generic.safe_fall_distance": {
+    "id": "minecraft:generic.safe_fall_distance",
+    "name": "generic.safe_fall_distance",
+    "default_value": 3.0,
+    "translation_key": "attribute.name.generic.safe_fall_distance",
+    "tracked": true,
+    "min_value": -1024.0,
+    "max_value": 1024.0
+  },
+  "generic.scale": {
+    "id": "minecraft:generic.scale",
+    "name": "generic.scale",
+    "default_value": 1.0,
+    "translation_key": "attribute.name.generic.scale",
+    "tracked": true,
+    "min_value": 0.0625,
+    "max_value": 16.0
+  },
+  "player.sneaking_speed": {
+    "id": "minecraft:player.sneaking_speed",
+    "name": "player.sneaking_speed",
+    "default_value": 0.3,
+    "translation_key": "attribute.name.player.sneaking_speed",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1.0
+  },
   "zombie.spawn_reinforcements": {
-    "id": 11,
+    "id": "minecraft:zombie.spawn_reinforcements",
     "name": "zombie.spawn_reinforcements",
     "default_value": 0.0,
     "translation_key": "attribute.name.zombie.spawn_reinforcements",
@@ -107,13 +242,40 @@
     "min_value": 0.0,
     "max_value": 1.0
   },
-  "horse.jump_strength": {
-    "id": 12,
-    "name": "horse.jump_strength",
-    "default_value": 0.7,
-    "translation_key": "attribute.name.horse.jump_strength",
+  "generic.step_height": {
+    "id": "minecraft:generic.step_height",
+    "name": "generic.step_height",
+    "default_value": 0.6,
+    "translation_key": "attribute.name.generic.step_height",
     "tracked": true,
     "min_value": 0.0,
-    "max_value": 2.0
+    "max_value": 10.0
+  },
+  "player.submerged_mining_speed": {
+    "id": "minecraft:player.submerged_mining_speed",
+    "name": "player.submerged_mining_speed",
+    "default_value": 0.2,
+    "translation_key": "attribute.name.player.submerged_mining_speed",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 20.0
+  },
+  "player.sweeping_damage_ratio": {
+    "id": "minecraft:player.sweeping_damage_ratio",
+    "name": "player.sweeping_damage_ratio",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.player.sweeping_damage_ratio",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1.0
+  },
+  "generic.water_movement_efficiency": {
+    "id": "minecraft:generic.water_movement_efficiency",
+    "name": "generic.water_movement_efficiency",
+    "default_value": 0.0,
+    "translation_key": "attribute.name.generic.water_movement_efficiency",
+    "tracked": true,
+    "min_value": 0.0,
+    "max_value": 1.0
   }
 }

@@ -5,7 +5,10 @@ use heck::{ToPascalCase, ToShoutySnakeCase, ToSnakeCase};
 use proc_macro2::TokenStream;
 use quote::quote;
 use serde::Deserialize;
+use valence_ident::Ident;
 use valence_build_utils::{ident, rerun_if_changed, write_generated_file};
+use valence_protocol::registry::RegistryEntry;
+use valence_registry::BiomeRegistry;
 
 #[derive(Deserialize, Clone, Debug)]
 struct Entity {
@@ -62,6 +65,7 @@ enum Value {
     OptionalBlockState(Option<String>),
     NbtCompound(String),
     Particle(String),
+    ParticleList(Vec<String>),
     VillagerData {
         #[serde(rename = "type")]
         typ: String,
@@ -71,9 +75,16 @@ enum Value {
     OptionalInt(Option<i32>),
     EntityPose(String),
     CatVariant(String),
+    WolfVariant{
+        wild_texture: Ident,
+        tame_texture: Ident,
+        angry_texture: Ident,
+        biomes: Vec<RegistryEntry<BiomeRegistry>>,
+    },
     FrogVariant(String),
     OptionalGlobalPos(Option<()>), // TODO
     PaintingVariant(String),
+    ArmadilloState(String),
     SnifferState(String),
     Vector3f {
         x: f32,
@@ -106,26 +117,29 @@ impl Value {
             Value::TextComponent(_) => 5,
             Value::OptionalTextComponent(_) => 6,
             Value::ItemStack(_) => 7,
+            Value::BlockState(_) => 14,
+            Value::OptionalBlockState(_) => 15,
             Value::Boolean(_) => 8,
-            Value::Rotation { .. } => 9,
+            Value::Particle(_) => 17,
+            Value::ParticleList(_) => 18,
+            Value::Rotation { .. } => 9, 
             Value::BlockPos(_) => 10,
             Value::OptionalBlockPos(_) => 11,
             Value::Facing(_) => 12,
             Value::OptionalUuid(_) => 13,
-            Value::BlockState(_) => 14,
-            Value::OptionalBlockState(_) => 15,
+            Value::OptionalGlobalPos(_) => 25,
             Value::NbtCompound(_) => 16,
-            Value::Particle(_) => 17,
-            Value::VillagerData { .. } => 18,
-            Value::OptionalInt(_) => 19,
-            Value::EntityPose(_) => 20,
+            Value::VillagerData { .. } => 19,
+            Value::OptionalInt(_) => 20,
+            Value::EntityPose(_) => 22,
             Value::CatVariant(_) => 21,
-            Value::FrogVariant(_) => 22,
-            Value::OptionalGlobalPos(_) => 23,
-            Value::PaintingVariant(_) => 24,
-            Value::SnifferState(_) => 25,
-            Value::Vector3f { .. } => 26,
-            Value::Quaternionf { .. } => 27,
+            Value::WolfVariant { .. } => 23,
+            Value::FrogVariant(_) => 24,
+            Value::PaintingVariant(_) => 26,
+            Value::ArmadilloState(_) => 28,
+            Value::SnifferState(_) => 27,
+            Value::Vector3f { .. } => 29,
+            Value::Quaternionf { .. } => 30,
         }
     }
 
@@ -149,6 +163,7 @@ impl Value {
             Value::OptionalBlockState(_) => quote!(valence_protocol::BlockState),
             Value::NbtCompound(_) => quote!(valence_nbt::Compound),
             Value::Particle(_) => quote!(valence_protocol::packets::play::particle_s2c::Particle),
+            Value::ParticleList(_) => quote!(Vec<valence_protocol::packets::play::particle_s2c::Particle>),
             Value::VillagerData { .. } => quote!(crate::VillagerData),
             Value::OptionalInt(_) => quote!(Option<i32>),
             Value::EntityPose(_) => quote!(crate::Pose),
@@ -157,8 +172,10 @@ impl Value {
             Value::OptionalGlobalPos(_) => quote!(()), // TODO
             Value::PaintingVariant(_) => quote!(crate::PaintingKind),
             Value::SnifferState(_) => quote!(crate::SnifferState),
+            Value::ArmadilloState(_) => quote!(crate::ArmadilloState),
             Value::Vector3f { .. } => quote!(valence_math::Vec3),
             Value::Quaternionf { .. } => quote!(valence_math::Quat),
+            Value::WolfVariant { .. } => quote!(crate::WolfVariant),
         }
     }
 
@@ -219,6 +236,7 @@ impl Value {
                 let variant = ident(p.to_pascal_case());
                 quote!(valence_protocol::packets::play::particle_s2c::Particle::#variant)
             }
+            Value::ParticleList(_) => quote!(Vec::new()),
             Value::VillagerData {
                 typ,
                 profession,
@@ -258,6 +276,28 @@ impl Value {
             Value::SnifferState(s) => {
                 let state = ident(s.to_pascal_case());
                 quote!(crate::SnifferState::#state)
+            }
+            Value::WolfVariant {
+                wild_texture,
+                tame_texture,
+                angry_texture,
+                biomes
+            } => {
+                let wild_texture = ident(wild_texture.to_pascal_case());
+                let tame_texture = ident(tame_texture.to_pascal_case());
+                let angry_texture = ident(angry_texture.to_pascal_case());
+                quote! {
+                    crate::WolfVariant {
+                        wild_texture: Ident,
+                        tame_texture: Ident,
+                        angry_texture: Ident,
+                        biomes: Vec<RegistryEntry<BiomeRegistry>>,
+                    }
+                }
+            }
+            Value::ArmadilloState(s) => {
+                let state = ident(s.to_pascal_case());
+                quote!(crate::ArmadilloState::#state)
             }
             Value::Vector3f { x, y, z } => quote!(valence_math::Vec3::new(#x, #y, #z)),
             Value::Quaternionf { x, y, z, w } => quote! {

@@ -13,9 +13,9 @@ pub(crate) enum StatusEffectCategory {
 
 #[derive(Deserialize, Debug)]
 pub(crate) struct AttributeModifiers {
-    attribute: u8,
+    attribute: String,
     operation: u8,
-    value: f64,
+    base_value: f64,
     uuid: String,
 }
 
@@ -143,14 +143,14 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
                 let modifiers = modifiers.iter().map(|modifier| {
                     let attribute = &modifier.attribute;
                     let operation = &modifier.operation;
-                    let value = &modifier.value;
+                    let base_value = &modifier.base_value;
                     let uuid = &modifier.uuid;
 
                     quote! {
                         AttributeModifier {
                             attribute: EntityAttribute::from_id(#attribute).unwrap(),
                             operation: EntityAttributeOperation::from_raw(#operation).unwrap(),
-                            value: #value,
+                            base_value: #base_value,
                             uuid: Uuid::parse_str(#uuid).unwrap(),
                         }
                     }
@@ -180,8 +180,8 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
             pub attribute: EntityAttribute,
             #[doc = "The operation that this modifier applies."]
             pub operation: EntityAttributeOperation,
-            #[doc = "The value of this modifier."]
-            pub value: f64,
+            #[doc = "The base_value of this modifier."]
+            pub base_value: f64,
             #[doc = "The UUID of this modifier."]
             pub uuid: Uuid,
         }

@@ -8,7 +8,7 @@ use valence_build_utils::{ident, rerun_if_changed};
 
 #[derive(Deserialize)]
 struct EntityAttribute {
-    id: u8,
+    id: String,
     default_value: f64,
     translation_key: String,
     tracked: bool,
@@ -117,13 +117,13 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
         }
 
         impl EntityAttribute {
-            pub fn get_id(self) -> u8 {
+            pub fn get_id(self) -> String {
                 match self {
                     #entity_attribute_get_id
                 }
             }
 
-            pub fn from_id(id: u8) -> Option<Self> {
+            pub fn from_id(id: &str) -> Option<Self> {
                 match id {
                     #entity_attribute_from_id
                     _ => None,

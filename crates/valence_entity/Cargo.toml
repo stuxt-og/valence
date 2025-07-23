@@ -26,6 +26,7 @@ valence_server_common.workspace = true
 valence_nbt.workspace = true
 valence_generated.workspace = true
 valence_protocol.workspace = true
+valence_ident.workspace = true
 indexmap.workspace = true
 
 [build-dependencies]
@@ -37,3 +38,5 @@ serde_json.workspace = true
 heck.workspace = true
 serde.workspace = true
 valence_build_utils.workspace = true
+valence_ident.workspace = true
+valence_protocol.workspace = true

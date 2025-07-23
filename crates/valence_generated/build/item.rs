@@ -5,9 +5,23 @@ use quote::quote;
 use serde::Deserialize;
 use valence_build_utils::{ident, rerun_if_changed};
 
+use std::sync::atomic::{AtomicU32, Ordering};
+
+static ID_COUNTER: AtomicU32 = AtomicU32::new(0);
+
+fn next_id() -> u32 {
+    ID_COUNTER.fetch_add(1, Ordering::Relaxed)
+}
+
+static ID_COUNTER: AtomicU32 = AtomicU32::new(0);
+
+fn next_id() -> u32 {
+    ID_COUNTER.fetch_add(1, Ordering::Relaxed)
+}
+
 #[derive(Deserialize, Clone, Debug)]
 struct Item {
-    id: u16,
+    id: u32,
     name: String,
     translation_key: String,
     max_stack: i8,
@@ -37,7 +51,7 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
     let item_kind_from_raw_id_arms = items
         .iter()
         .map(|item| {
-            let id = &item.id;
+            let id = next_id();
             let name = ident(item.name.to_pascal_case());
 
             quote! {
@@ -46,147 +60,147 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
         })
         .collect::<TokenStream>();
 
-    let item_kind_to_raw_id_arms = items
-        .iter()
-        .map(|item| {
-            let id = &item.id;
-            let name = ident(item.name.to_pascal_case());
-
-            quote! {
-                Self::#name => #id,
-            }
-        })
-        .collect::<TokenStream>();
-
-    let item_kind_from_str_arms = items
-        .iter()
-        .map(|item| {
-            let str_name = &item.name;
-            let name = ident(str_name.to_pascal_case());
-            quote! {
-                #str_name => Some(Self::#name),
-            }
-        })
-        .collect::<TokenStream>();
-
-    let item_kind_to_str_arms = items
-        .iter()
-        .map(|item| {
-            let str_name = &item.name;
-            let name = ident(str_name.to_pascal_case());
-            quote! {
-                Self::#name => #str_name,
-            }
-        })
-        .collect::<TokenStream>();
-
-    let item_kind_to_translation_key_arms = items
-        .iter()
-        .map(|item| {
-            let name = ident(item.name.to_pascal_case());
-            let translation_key = &item.translation_key;
-            quote! {
-                Self::#name => #translation_key,
-            }
-        })
-        .collect::<TokenStream>();
-
-    let item_kind_variants = items
-        .iter()
-        .map(|item| ident(item.name.to_pascal_case()))
-        .collect::<Vec<_>>();
-
-    let item_kind_to_max_stack_arms = items
-        .iter()
-        .map(|item| {
-            let name = ident(item.name.to_pascal_case());
-            let max_stack = item.max_stack;
-
-            quote! {
-                Self::#name => #max_stack,
-            }
-        })
-        .collect::<TokenStream>();
-
-    let item_kind_to_food_component_arms = items
-        .iter()
-        .map(|item| match &item.food {
-            Some(food_component) => {
+        let item_kind_to_raw_id_arms = items
+            .iter()
+            .map(|item| {
+                let id = next_id();
                 let name = ident(item.name.to_pascal_case());
-                let hunger = food_component.hunger;
-                let saturation = food_component.saturation;
-                let always_edible = food_component.always_edible;
-                let meat = food_component.meat;
-                let snack = food_component.snack;
 
                 quote! {
-                    Self::#name => Some(FoodComponent {
-                        hunger: #hunger,
-                        saturation: #saturation,
-                        always_edible: #always_edible,
-                        meat: #meat,
-                        snack: #snack,
-                    }
-                ),
+                    Self::#name => #id,
                 }
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_from_str_arms = items
+            .iter()
+            .map(|item| {
+                let str_name = &item.name;
+                let name = ident(str_name.to_pascal_case());
+                quote! {
+                    #str_name => Some(Self::#name),
+                }
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_to_str_arms = items
+            .iter()
+            .map(|item| {
+                let str_name = &item.name;
+                let name = ident(str_name.to_pascal_case());
+                quote! {
+                    Self::#name => #str_name,
+                }
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_to_translation_key_arms = items
+            .iter()
+            .map(|item| {
+                let name = ident(item.name.to_pascal_case());
+                let translation_key = &item.translation_key;
+                quote! {
+                    Self::#name => #translation_key,
+                }
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_variants = items
+            .iter()
+            .map(|item| ident(item.name.to_pascal_case()))
+            .collect::<Vec<_>>();
+
+        let item_kind_to_max_stack_arms = items
+            .iter()
+            .map(|item| {
+                let name = ident(item.name.to_pascal_case());
+                let max_stack = item.max_stack;
+
+                quote! {
+                    Self::#name => #max_stack,
+                }
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_to_food_component_arms = items
+            .iter()
+            .map(|item| match &item.food {
+                Some(food_component) => {
+                    let name = ident(item.name.to_pascal_case());
+                    let hunger = food_component.hunger;
+                    let saturation = food_component.saturation;
+                    let always_edible = food_component.always_edible;
+                    let meat = food_component.meat;
+                    let snack = food_component.snack;
+
+                    quote! {
+                        Self::#name => Some(FoodComponent {
+                            hunger: #hunger,
+                            saturation: #saturation,
+                            always_edible: #always_edible,
+                            meat: #meat,
+                            snack: #snack,
+                        }
+                    ),
+                    }
+                }
+                None => quote! {},
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_to_max_durability_arms = items
+            .iter()
+            .filter(|item| item.max_durability != 0)
+            .map(|item| {
+                let name = ident(item.name.to_pascal_case());
+                let max_durability = item.max_durability;
+
+                quote! {
+                    Self::#name => #max_durability,
+                }
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_to_enchantability_arms = items
+            .iter()
+            .filter(|item| item.enchantability != 0)
+            .map(|item| {
+                let name = ident(item.name.to_pascal_case());
+                let ench = item.enchantability;
+
+                quote! {
+                    Self::#name => #ench,
+                }
+            })
+            .collect::<TokenStream>();
+
+        let item_kind_to_fireproof_arms = items
+            .iter()
+            .filter(|item| item.fireproof)
+            .map(|item| {
+                let name = ident(item.name.to_pascal_case());
+
+                quote! {
+                    Self::#name => true,
+                }
+            })
+            .collect::<TokenStream>();
+
+        Ok(quote! {
+            #[doc = "Represents an item from the game"]
+            #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Default)]
+            #[repr(u16)]
+            pub enum ItemKind {
+                #[default]
+                #(#item_kind_variants,)*
             }
-            None => quote! {},
-        })
-        .collect::<TokenStream>();
 
-    let item_kind_to_max_durability_arms = items
-        .iter()
-        .filter(|item| item.max_durability != 0)
-        .map(|item| {
-            let name = ident(item.name.to_pascal_case());
-            let max_durability = item.max_durability;
-
-            quote! {
-                Self::#name => #max_durability,
-            }
-        })
-        .collect::<TokenStream>();
-
-    let item_kind_to_enchantability_arms = items
-        .iter()
-        .filter(|item| item.enchantability != 0)
-        .map(|item| {
-            let name = ident(item.name.to_pascal_case());
-            let ench = item.enchantability;
-
-            quote! {
-                Self::#name => #ench,
-            }
-        })
-        .collect::<TokenStream>();
-
-    let item_kind_to_fireproof_arms = items
-        .iter()
-        .filter(|item| item.fireproof)
-        .map(|item| {
-            let name = ident(item.name.to_pascal_case());
-
-            quote! {
-                Self::#name => true,
-            }
-        })
-        .collect::<TokenStream>();
-
-    Ok(quote! {
-        #[doc = "Represents an item from the game"]
-        #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Debug, Default)]
-        #[repr(u16)]
-        pub enum ItemKind {
-            #[default]
-            #(#item_kind_variants,)*
-        }
-
-        #[doc = "Contains food information about an item."]
-        #[doc = ""]
-        #[doc = "Only food items have a food component."]
-        #[derive(Clone, Copy, PartialEq, PartialOrd, Debug)]
-        pub struct FoodComponent {
-            pub hunger: u16,
+            #[doc = "Contains food information about an item."]
+            #[doc = ""]
+            #[doc = "Only food items have a food component."]
+            #[derive(Clone, Copy, PartialEq, PartialOrd, Debug)]
+            pub struct FoodComponent {
+                pub hunger: u16,
             pub saturation: f32,
             pub always_edible: bool,
             pub meat: bool,
@@ -197,7 +211,7 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
             #[doc = "Constructs a item kind from a raw item ID."]
             #[doc = ""]
             #[doc = "If the given ID is invalid, `None` is returned."]
-            pub const fn from_raw(id: u16) -> Option<Self> {
+            pub const fn from_raw(id: &str) -> Option<Self> {
                 match id {
                     #item_kind_from_raw_id_arms
                     _ => None
@@ -205,7 +219,7 @@ pub(crate) fn build() -> anyhow::Result<TokenStream> {
             }
 
             #[doc = "Gets the raw item ID from the item kind"]
-            pub const fn to_raw(self) -> u16 {
+            pub const fn to_raw(self) -> &str {
                 match self {
                     #item_kind_to_raw_id_arms
                 }
